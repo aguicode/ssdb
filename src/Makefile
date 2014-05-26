@@ -8,7 +8,7 @@ EXES = ../ssdb-server
 
 
 all: ssdb.h ${OBJS} ssdb-server.o
-	${CXX} -o ../ssdb-server ssdb-server.o ${OBJS} ${UTIL_OBJS} ${CLIBS}
+	${CXX} -o ../ssdb-server ssdb-server.o ${OBJS} ${UTIL_OBJS} ${CLIBS} -lz -lbz2
 
 ssdb-server.o: ssdb-server.cpp
 	${CXX} ${CFLAGS} -c ssdb-server.cpp

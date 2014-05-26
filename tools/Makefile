@@ -3,6 +3,7 @@ include ../build_config.mk
 OBJS += ../src/link.o ../src/util/fde.o ../src/util/log.o ../src/util/bytes.o
 CFLAGS += -I../src
 EXES = ssdb-bench ssdb-dump ssdb-repair leveldb-import
+CLIBS = -lz -lbz2
 
 all: ssdb-bench.o ssdb-dump.o ssdb-repair.o leveldb-import.o
 	${CXX} -o ssdb-bench ssdb-bench.o ${OBJS} ${UTIL_OBJS} ${CLIBS}

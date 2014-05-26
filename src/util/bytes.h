@@ -2,7 +2,7 @@
 #define UTIL_BYTES_H_
 
 #include "../include.h"
-#include "leveldb/slice.h"
+#include "rocksdb/slice.h"
 #include "strings.h"
 
 // readonly
@@ -133,7 +133,7 @@ class Buffer{
 		Buffer(int total);
 		~Buffer();
 
-		int total() const{ // 缓冲区大小
+		int total() const{ // 缂���插�哄ぇ灏�
 			return total_;
 		}
 
@@ -141,7 +141,7 @@ class Buffer{
 			return size_ == 0;
 		}
 
-		// 数据
+		// ��版��
 		char* data() const{
 			return data_;
 		}
@@ -167,9 +167,9 @@ class Buffer{
 			data_ += num;
 		}
 
-		// 保证不改变后半段的数据, 以便使已生成的 Bytes 不失效.
+		// 淇�璇�涓���瑰��������娈电����版��, 浠ヤ究浣垮凡��������� Bytes 涓�澶辨��.
 		void nice();
-		// 扩大缓冲区
+		// ��╁ぇ缂���插��
 		int grow();
 
 		std::string stats() const;

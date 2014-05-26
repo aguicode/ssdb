@@ -1,9 +1,9 @@
 #include "ssdb.h"
 #include "slave.h"
-#include "leveldb/env.h"
-#include "leveldb/iterator.h"
-#include "leveldb/cache.h"
-#include "leveldb/filter_policy.h"
+#include "rocksdb/env.h"
+#include "rocksdb/iterator.h"
+#include "rocksdb/cache.h"
+#include "rocksdb/filter_policy.h"
 
 #include "t_kv.h"
 #include "t_hash.h"
@@ -28,7 +28,7 @@ SSDB::~SSDB(){
 		delete db;
 	}
 	if(options.block_cache){
-		delete options.block_cache;
+		//del  delete options.block_cache;
 	}
 	if(options.filter_policy){
 		delete options.filter_policy;
@@ -84,7 +84,7 @@ SSDB* SSDB::open(const Config &conf, const std::string &base_dir){
 	ssdb->options.block_cache = leveldb::NewLRUCache(cache_size * 1048576);
 	ssdb->options.block_size = block_size * 1024;
 	ssdb->options.write_buffer_size = write_buffer_size * 1024 * 1024;
-	ssdb->options.compaction_speed = compaction_speed;
+	//ssdb->options.compaction_speed = compaction_speed;
 	if(compression == "yes"){
 		ssdb->options.compression = leveldb::kSnappyCompression;
 	}else{

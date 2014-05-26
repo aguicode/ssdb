@@ -3,8 +3,8 @@
 
 #include <inttypes.h>
 #include <string>
-#include "leveldb/iterator.h"
-#include "leveldb/slice.h"
+#include "rocksdb/iterator.h"
+#include "rocksdb/slice.h"
 #include "util/bytes.h"
 
 class Iterator{

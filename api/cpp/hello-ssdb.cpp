@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <sstream>
 #include <vector>
 #include "SSDB.h"
 
@@ -15,16 +16,20 @@ int main(int argc, char **argv){
 	}
 
 	ssdb::Status s;
-	s = client->set("k", "hello ssdb!");
-	if(s.ok()){
+   	int i = 0;
+        std::stringstream k;
+        while(i++ < 1000000) {
+	k << i;
+	s = client->set(k.str(), "hello ssdb!");
+/*	if(s.ok()){
 		printf("k = hello ssdb!\n");
 	}else{
 		printf("error!\n");
 	}
-	std::string val;
-	s = client->get("k", &val);
-	printf("length: %d\n", (int)val.size());
-
+*/	std::string val;
+	s = client->get(k.str(), &val);
+//	printf("length: %d\n", (int)val.size());
+	}
 	delete client;
 	return 0;
 }

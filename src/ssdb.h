@@ -3,8 +3,8 @@
 
 #include "include.h"
 #include <vector>
-#include "leveldb/db.h"
-#include "leveldb/options.h"
+#include "rocksdb/db.h"
+#include "rocksdb/options.h"
 
 #include "util/log.h"
 #include "util/bytes.h"

@@ -1,6 +1,6 @@
 #include <limits.h>
 #include "t_zset.h"
-#include "leveldb/write_batch.h"
+#include "rocksdb/write_batch.h"
 
 static const char *SSDB_SCORE_MIN		= "-9223372036854775808";
 static const char *SSDB_SCORE_MAX		= "+9223372036854775807";

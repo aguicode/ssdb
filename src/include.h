@@ -19,13 +19,15 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+
+
 #include "version.h"
 
 #ifndef UINT64_MAX
 	#define UINT64_MAX        18446744073709551615ULL
 #endif
 
-
+#define  leveldb rocksdb
 static const int SSDB_SCORE_WIDTH		= 9;
 static const int SSDB_KEY_LEN_MAX		= 255;
 

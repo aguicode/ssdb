@@ -3,16 +3,18 @@
 #include <string>
 #include <vector>
 
-#include "leveldb/db.h"
-#include "leveldb/env.h"
-#include "leveldb/options.h"
-#include "leveldb/slice.h"
-#include "leveldb/iterator.h"
+#include "rocksdb/db.h"
+#include "rocksdb/env.h"
+#include "rocksdb/options.h"
+#include "rocksdb/slice.h"
+#include "rocksdb/iterator.h"
 
 #include "link.h"
 #include "util/log.h"
 #include "util/file.h"
 #include "util/strings.h"
+
+using std::shared_ptr;
 
 void welcome(){
 	printf("ssdb-repair - SSDB repair tool\n");
@@ -44,7 +46,8 @@ int main(int argc, char **argv){
 	
 	leveldb::Status status;
 	
-	leveldb::Logger *logger;
+	shared_ptr<rocksdb::Logger>  logger;
+	//leveldb::Logger *logger;
 	status = leveldb::Env::Default()->NewLogger("repair.log", &logger);
 	if(!status.ok()){
 		printf("logger error!\n");
